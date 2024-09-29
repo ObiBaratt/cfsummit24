@@ -35,7 +35,7 @@ header {
 
 #code-container {
   opacity: 0;
-  display: none;
+  display: flex;
   background-color: #272822;
   color: #f8f8f2;
   font-family: monospace;
@@ -45,11 +45,12 @@ header {
   overflow: auto;
 }
 
+
 #start-button {
   background-color: #4CAF50;
   color: white;
   padding: 10px 20px;
-  margin: 15%;
+  margin: 5%;;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -85,3 +86,4 @@ header {
   height: 80px;
   width: 200px;
 }
+

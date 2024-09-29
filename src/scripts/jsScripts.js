@@ -6,12 +6,17 @@ const startButton = document.getElementById("start-button");
 const jsButton = document.querySelector("#run-js-button");
 
 const jsBody = document.getElementById("js-body");
+const codeContainer = document.getElementById("code-container");
+
+function fadeCodeContainer() {
+    fade(codeContainer);
+}
 
 function fadeStartButton() {
     fade(startButton);
 }
 function toggleRunJsButton() {
-  fade(startButton);
+  fade(jsButton);
 }
 
-export { toggleRunJsButton, fadeStartButton };
+export { toggleRunJsButton, fadeStartButton, fadeCodeContainer };

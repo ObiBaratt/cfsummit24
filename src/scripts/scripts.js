@@ -1,19 +1,18 @@
 import { toggleRunJqButton } from "./jqScripts.js";
-import { toggleRunJsButton, fadeStartButton } from "./jsScripts.js";
+import { toggleRunJsButton, fadeStartButton, fadeCodeContainer } from "./jsScripts.js";
 
 const startContainer = document.getElementById("start-container");
-const startButton = document.getElementById("start-button");
+const jsStartButton = document.getElementById("start-button");
 
 console.log("adding listener");
-startButton.addEventListener("click", () => {
+jsStartButton.addEventListener("click", () => {
   fadeStartButton();
 
-  setTimeout(() => {
-    toggleRunJsButton();
-    toggleRunJqButton();
-  }, 500);
+  toggleRunJsButton();
+  toggleRunJqButton();
 
   setTimeout(() => {
+    fadeCodeContainer()
     startContainer.remove();
   }, 1000);
 });
