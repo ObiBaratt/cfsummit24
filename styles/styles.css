@@ -1,6 +1,10 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
 }
 
 header {
@@ -26,6 +30,11 @@ header {
   height: 100%;
 }
 
+#code-container p {
+  font-size: x-large;
+  font-weight: bold;
+}
+
 .button-container {
   display: flex;
   justify-content: center;
@@ -40,17 +49,52 @@ header {
   color: #f8f8f2;
   font-family: monospace;
   padding: 15px;
-  height: 20vh;
+  height: 25vh;
+  min-height: 25vh;
   border-radius: 5px;
   overflow: auto;
 }
 
+#bodies {
+  height: 70%;
+}
+
+.panelHidden {
+  display: none;
+}
+
+#js-body {
+  position: fixed;
+  top: 35vh;
+  left: 0;
+  margin-left: 20px;
+  width: 47%;
+  height: 60vh;
+  background-color: white;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+  border: 5px solid #272822;
+}
+
+#jq-body {
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 35vh;
+  margin-right: 20px;
+  width: 47%;
+  height: 60vh;
+  background-color: white;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+  border: 5px solid #272822;
+}
 
 #start-button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 10px 20px;
-  margin: 5%;;
+  margin: 5%;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -60,9 +104,9 @@ header {
 }
 
 #run-js-button {
-  opacity: 0;
   display: none;
-  background-color: #4CAF50;
+  opacity: 0;
+  background-color: #4caf50;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -74,9 +118,8 @@ header {
 }
 
 #run-jq-button {
-  opacity: 0;
   display: none;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -86,4 +129,3 @@ header {
   height: 80px;
   width: 200px;
 }
-

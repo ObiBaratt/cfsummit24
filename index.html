@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CF Summit 2024</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="src/slide/slide.css">
 </head>
+
 <body>
 
-    <header>
+    <header id="header">
         <h1>CF Summit 2024</h1>
     </header>
 
-    <div id="code-container" class="row"> 
-        <div id="js-code" class="column centered"><p>Welcome to the wonderful world of JavaScript.</p></div>
-        <div id="jq-code" class="column centered"><p>Welcome to the less wonderful world of jQuery.</p></div>
-    </div>
+    <span class="row" id="start-container"></span>
+    <span class="column centered">
+        <button id="start-button">Ready to get started?</button>
+    </span>
+    </span>
 
-    <div class="row" id="start-container">
-        <div class="column centered">
-            <button id="start-button">Ready to get started?</button>
+    <div id="code-container" class="row">
+        <div id="js-code" class="column centered">
+            <p>Welcome to the wonderful world of JavaScript.</p> 
+            <button id="run-js-button">Run JS</button>
+        </div>
+        <div id="jq-code" class="column centered">
+            <p>Welcome to the (less) wonderful world of jQuery.</p> 
+            <button id="run-jq-button">Run JQ</button>
         </div>
     </div>
 
-    <div class="row" style="height: 80vh;">
-        <div class="column" id="js-body">
-            <div class="button-container">
-                <button id="run-js-button">Run JS</button>
-            </div>
+    <div class="row" id="bodies">
+        <div class="column panelHidden" id="js-body">
+            <h2>JavaScript</h2>
         </div>
         <div class="column" id="jq-body">
-            <div class="button-container">
-                <button id="run-jq-button">Run JQ</button>
-            </div>
+            <h2>jQuery</h2>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script type="module" src="src/scripts/scripts.js"></script>
 </body>
+
 </html>

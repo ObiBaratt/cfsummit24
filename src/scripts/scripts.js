@@ -1,18 +1,52 @@
-import { toggleRunJqButton } from "./jqScripts.js";
-import { toggleRunJsButton, fadeStartButton, fadeCodeContainer } from "./jsScripts.js";
+import fade from "../fade/index.js";
+
+import { addRunJqSliderListener, toggleRunJqButton } from "./jqScripts.js";
+import { toggleRunJsButton, addRunJsSliderListener } from "./jsScripts.js";
+
+// Setup code only in JS
 
 const startContainer = document.getElementById("start-container");
-const jsStartButton = document.getElementById("start-button");
+const startButton = document.getElementById("start-button");
+const codeContainer = document.getElementById("code-container");
+const header = document.getElementById("header");
 
-console.log("adding listener");
-jsStartButton.addEventListener("click", () => {
+
+function fadeCodeContainer() {
+  fade(codeContainer);
+}
+
+function fadeStartButton() {
+  fade(startButton);
+}
+
+startButton.addEventListener("click", () => {
   fadeStartButton();
 
+  setTimeout(() => {
+    fadeCodeContainer();
+    startContainer.remove();
+    fade(header, 1000);
+  }, 1000);
+
+  setTimeout(() => {
+    getButtons();
+  }, 2500);
+});
+
+// End of setup code
+
+function getButtons() {
   toggleRunJsButton();
   toggleRunJqButton();
 
   setTimeout(() => {
-    fadeCodeContainer()
-    startContainer.remove();
-  }, 1000);
-});
+    const jsButton = document.querySelector("#run-js-button");
+    jsButton.addEventListener("click", () => {
+      addRunJsSliderListener();
+    });
+    const jqButton = $("#run-jq-button");
+    jqButton.on("click", () => {
+      addRunJqSliderListener();
+    });
+  }, 100)
+}
