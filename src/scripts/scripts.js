@@ -1,20 +1,30 @@
 import fade from "../fade/index.js";
 
 import {
-  addJqSlider,
   appendToJqCode,
+  addJqSlider,
   newJqParagraph,
   cleanUpJq,
   newJqDivWithClass,
   addJqAnimalList,
+  modifyJqAnimalListItems,
+  addJqListItemEventHandler,
+  addCoolAnimalsToJqList,
+  fetchJqDogs,
+  cleanUpAfterJqDogs,
 } from "./jqScripts.js";
 import {
-  addJsSlider,
   appendToJsCode,
+  addJsSlider,
   newJsParagraph,
   cleanUpJs,
   newJsDivWithClass,
   addJsAnimalList,
+  modifyJsAnimalListItems,
+  addJsListItemEventHandler,
+  addCoolAnimalsToJsList,
+  fetchJsDogs,
+  cleanUpAfterJsDogs,
 } from "./jsScripts.js";
 
 let funcIndex = 0;
@@ -24,6 +34,11 @@ const functions = [
   { js: newJsParagraph, jq: newJqParagraph },
   { js: newJsDivWithClass, jq: newJqDivWithClass },
   { js: addJsAnimalList, jq: addJqAnimalList },
+  { js: modifyJsAnimalListItems, jq: modifyJqAnimalListItems },
+  { js: addJsListItemEventHandler, jq: addJqListItemEventHandler },
+  { js: addCoolAnimalsToJsList, jq: addCoolAnimalsToJqList },
+  { js: fetchJsDogs, jq: fetchJqDogs },
+  { js: cleanUpAfterJsDogs, jq: cleanUpAfterJqDogs },
 ];
 
 document.addEventListener("keyup", (e) => {
