@@ -6,7 +6,6 @@ function toggleRunJsButton() {
   fade(jsButton);
 }
 
-
 function addRunJsSliderListener() {
   const jsButton = document.querySelector("#run-js-button");
   jsButton.addEventListener("click", () => {
@@ -14,14 +13,17 @@ function addRunJsSliderListener() {
     slide(jsBody, "left", false, false);
     setTimeout(() => {
       fade(jsButton);
+      const fnText = addRunJsSliderListener.toString();
+      appendToJsCode(fnText);
     }, 100);
   });
 }
-function appendToJsBody(text) {
-  const jsBody = document.getElementById("js-body");
-  const p = document.createElement("p");
-  p.textContent = text;
-  jsBody.appendChild(p);
+
+function appendToJsCode(text) {
+  const jsCode = document.getElementById("js-code");
+  const pre = document.createElement("pre");
+  pre.textContent = text;
+  jsCode.appendChild(pre);
 }
 
-export { toggleRunJsButton, appendToJsBody, addRunJsSliderListener };
+export { toggleRunJsButton, appendToJsCode, addRunJsSliderListener };

@@ -31,7 +31,7 @@ header {
 }
 
 #code-container p {
-  font-size: x-large;
+  font-size: xx-large;
   font-weight: bold;
 }
 
@@ -49,10 +49,14 @@ header {
   color: #f8f8f2;
   font-family: monospace;
   padding: 15px;
-  height: 25vh;
+  height: 27vh;
   min-height: 25vh;
   border-radius: 5px;
   overflow: auto;
+}
+
+.code-output {
+  white-space: pre;
 }
 
 #bodies {
@@ -65,11 +69,11 @@ header {
 
 #js-body {
   position: fixed;
-  top: 35vh;
+  top: 36vh;
   left: 0;
   margin-left: 20px;
   width: 47%;
-  height: 60vh;
+  height: 59vh;
   background-color: white;
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
@@ -80,10 +84,10 @@ header {
   display: none;
   position: fixed;
   right: 0;
-  top: 35vh;
+  top: 36vh;
   margin-right: 20px;
   width: 47%;
-  height: 60vh;
+  height: 59vh;
   background-color: white;
   z-index: 1000;
   transition: transform 0.3s ease-in-out;

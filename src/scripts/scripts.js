@@ -30,7 +30,7 @@ startButton.addEventListener("click", () => {
 
   setTimeout(() => {
     getButtons();
-  }, 2500);
+  }, 1500); // TODO: set to 5000-7500 for the talk
 });
 
 // End of setup code
