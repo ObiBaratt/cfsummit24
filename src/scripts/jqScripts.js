@@ -44,6 +44,88 @@ function addJqAnimalList() {
   });
 }
 
+function modifyJqAnimalListItems() {
+  const $jqAnimalList = $("#jqAnimalList");
+  $jqAnimalList.find("li").css({
+    "font-weight": "bold",
+    "font-size": "16px",
+    color: "blue",
+  });
+}
+
+function addJqListItemEventHandler() {
+  const $jqCat = $("#catJqListItem");
+  const $jqDog = $("#dogJqListItem");
+
+  $jqDog.on("mouseover", function () {
+    $jqCat.css("color", "white");
+  });
+
+  $jqDog.on("mouseout", function () {
+    $jqDog.css("color", "green");
+  });
+}
+
+function addCoolAnimalsToJqList() {
+  const $jqBody = $("#jq-body");
+  const jqAnimalList = $("#jqAnimalList");
+  const coolAnimals = ["Turtle", "Gorilla", "Platypus", "Orca", "Cheetah"];
+  const $button = $("<button>").text("Add an Animal");
+  $jqBody.append($button);
+
+  function addAnimal() {
+    const rand = Math.random();
+    const randomIndex = Math.floor(rand * coolAnimals.length);
+    const randomAnimal = coolAnimals[randomIndex];
+    const $li = $("<li>").text(randomAnimal);
+    $li.attr("id", `${randomAnimal}JqListItem-${rand}`);
+    jqAnimalList.append($li);
+  }
+  $button.on("click", addAnimal);
+}
+
+function fetchJqDogs() {
+  const $jqBody = $("#jq-body");
+  const $button = $("<button>").text("Fetch a Dog");
+  $jqBody.append($button);
+  $button.on("click", () => {
+    $.ajax({
+      url: "https://dog.ceo/api/breeds/image/random",
+      dataType: "json",
+      success: function (data) {
+        const $img = $("<img>")
+          .attr("src", data.message)
+          .attr("alt", "Random Dog Image")
+          .css({
+            width: "160px",
+            height: "160px",
+          });
+        $jqBody.prepend($img);
+      },
+    });
+  });
+}
+
+function cleanUpAfterJqDogs() {
+  const $jqBody = $("#jq-body");
+  const $jqAnimalList = $("#jqAnimalList");
+  const $button = $jqBody.find("button");
+  $button.remove();
+
+  const jqGridContainer = $("<div>")
+    .attr("class", "image-grid")
+    .attr("id", "jqGridContainer");
+  $jqAnimalList.prepend(jqGridContainer);
+
+  const $images = $jqBody.find("img");
+  $images.each(function () {
+    $(this).css({
+      height: "45px",
+      width: "45px",
+    });
+  });
+}
+
 export {
   appendToJqCode,
   addJqSlider,
@@ -51,4 +133,9 @@ export {
   cleanUpJq,
   newJqDivWithClass,
   addJqAnimalList,
+  modifyJqAnimalListItems,
+  addJqListItemEventHandler,
+  addCoolAnimalsToJqList,
+  fetchJqDogs,
+  cleanUpAfterJqDogs,
 };
