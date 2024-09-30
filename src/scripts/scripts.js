@@ -1,12 +1,29 @@
 import fade from "../fade/index.js";
 
-import { addJqSlider, appendToJqCode, newJqParagraph } from "./jqScripts.js";
-import { addJsSlider, appendToJsCode, newJsParagraph } from "./jsScripts.js";
+import {
+  addJqSlider,
+  appendToJqCode,
+  newJqParagraph,
+  cleanUpJq,
+  newJqDivWithClass,
+  addJqAnimalList,
+} from "./jqScripts.js";
+import {
+  addJsSlider,
+  appendToJsCode,
+  newJsParagraph,
+  cleanUpJs,
+  newJsDivWithClass,
+  addJsAnimalList,
+} from "./jsScripts.js";
 
 let funcIndex = 0;
 const functions = [
+  { js: cleanUpJs, jq: cleanUpJq },
   { js: addJsSlider, jq: addJqSlider },
   { js: newJsParagraph, jq: newJqParagraph },
+  { js: newJsDivWithClass, jq: newJqDivWithClass },
+  { js: addJsAnimalList, jq: addJqAnimalList },
 ];
 
 document.addEventListener("keyup", (e) => {
@@ -16,6 +33,13 @@ document.addEventListener("keyup", (e) => {
       return;
     }
     const curFuncs = functions[funcIndex];
+
+    if (funcIndex === 0) {
+      cleanUpContainer("h3");
+    } else {
+      cleanUpContainer("pre");
+    }
+
     runJq(curFuncs.jq);
     runJs(curFuncs.js);
 
@@ -60,15 +84,15 @@ function runCode(fn, source) {
   const fnText = fn.toString();
   if (source === "js") {
     appendToJsCode(fnText);
-    appendToJsCode("=========");
   } else if (source === "jq") {
     appendToJqCode(fnText);
-    appendToJqCode("=========");
   } else {
     console.error(`Unknown source: ${source}`);
   }
 }
 
-function cleanupCodeContainer() {
-    
+function cleanUpContainer(tag) {
+  console.log("cleaning up", tag);
+  cleanUpJq(tag);
+  cleanUpJs(tag);
 }
