@@ -1,15 +1,33 @@
 import fade from "../fade/index.js";
 
-import { addRunJqSliderListener, toggleRunJqButton } from "./jqScripts.js";
-import { toggleRunJsButton, addRunJsSliderListener } from "./jsScripts.js";
+import { addJqSlider, appendToJqCode, newJqParagraph } from "./jqScripts.js";
+import { addJsSlider, appendToJsCode, newJsParagraph } from "./jsScripts.js";
 
-// Setup code only in JS
+let funcIndex = 0;
+const functions = [
+  { js: addJsSlider, jq: addJqSlider },
+  { js: newJsParagraph, jq: newJqParagraph },
+];
+
+document.addEventListener("keyup", (e) => {
+  if (e.key === "0") {
+    if (funcIndex >= functions.length) {
+      console.error("No more functions to run.");
+      return;
+    }
+    const curFuncs = functions[funcIndex];
+    runJq(curFuncs.jq);
+    runJs(curFuncs.js);
+
+    funcIndex = funcIndex + 1;
+    console.log({ funcIndex });
+  }
+});
 
 const startContainer = document.getElementById("start-container");
 const startButton = document.getElementById("start-button");
 const codeContainer = document.getElementById("code-container");
 const header = document.getElementById("header");
-
 
 function fadeCodeContainer() {
   fade(codeContainer);
@@ -27,26 +45,30 @@ startButton.addEventListener("click", () => {
     startContainer.remove();
     fade(header, 1000);
   }, 1000);
-
-  setTimeout(() => {
-    getButtons();
-  }, 1500); // TODO: set to 5000-7500 for the talk
 });
 
-// End of setup code
+function runJq(fn) {
+  runCode(fn, "jq");
+}
 
-function getButtons() {
-  toggleRunJsButton();
-  toggleRunJqButton();
+function runJs(fn) {
+  runCode(fn, "js");
+}
 
-  setTimeout(() => {
-    const jsButton = document.querySelector("#run-js-button");
-    jsButton.addEventListener("click", () => {
-      addRunJsSliderListener();
-    });
-    const jqButton = $("#run-jq-button");
-    jqButton.on("click", () => {
-      addRunJqSliderListener();
-    });
-  }, 100)
+function runCode(fn, source) {
+  fn();
+  const fnText = fn.toString();
+  if (source === "js") {
+    appendToJsCode(fnText);
+    appendToJsCode("=========");
+  } else if (source === "jq") {
+    appendToJqCode(fnText);
+    appendToJqCode("=========");
+  } else {
+    console.error(`Unknown source: ${source}`);
+  }
+}
+
+function cleanupCodeContainer() {
+    
 }

@@ -1,22 +1,9 @@
 import fade from "../fade/index.js";
 import slide from "../slide/index.js";
 
-function toggleRunJsButton() {
-  const jsButton = document.querySelector("#run-js-button");
-  fade(jsButton);
-}
-
-function addRunJsSliderListener() {
-  const jsButton = document.querySelector("#run-js-button");
-  jsButton.addEventListener("click", () => {
-    const jsBody = document.getElementById("js-body");
-    slide(jsBody, "left", false, false);
-    setTimeout(() => {
-      fade(jsButton);
-      const fnText = addRunJsSliderListener.toString();
-      appendToJsCode(fnText);
-    }, 100);
-  });
+function addJsSlider() {
+  const jsBody = document.getElementById("js-body");
+  slide(jsBody, "left", false, false);
 }
 
 function appendToJsCode(text) {
@@ -26,4 +13,11 @@ function appendToJsCode(text) {
   jsCode.appendChild(pre);
 }
 
-export { toggleRunJsButton, appendToJsCode, addRunJsSliderListener };
+function newJsParagraph() {
+  const jsBody = document.getElementById("js-body");
+  const paragraph = document.createElement("p");
+  paragraph.textContent = "This is a new paragraph.";
+  jsBody.appendChild(paragraph);
+}
+
+export { appendToJsCode, addJsSlider, newJsParagraph };
