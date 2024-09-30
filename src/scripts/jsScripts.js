@@ -19,6 +19,7 @@ function cleanUpJs(tag) {
 
 function addJsSlider() {
   const jsBody = document.getElementById("js-body");
+  // slide takes element, direction, overlay, outsideClicksCloses
   slide(jsBody, "left", false, false);
 }
 
@@ -61,17 +62,17 @@ function modifyJsAnimalListItems() {
 }
 
 function addJsListItemEventHandler() {
-  const jsCat = document.getElementById("#catJsListItem");
-  const jsDog = document.getElementById("#dogJsListItem");
+  const jsCat = document.getElementById("catJsListItem");
+  const jsDog = document.getElementById("dogJsListItem");
   function handleMouseOver() {
-    catListItem.style.color = "white";
+    jsCat.style.color = "white";
   }
 
   function handleMouseOut() {
-    catListItem.style.color = "green";
+    jsCat.style.color = "green";
   }
-  dogListItem.addEventListener("mouseover", handleMouseOver);
-  dogListItem.addEventListener("mouseout", handleMouseOut);
+  jsDog.addEventListener("mouseover", handleMouseOver);
+  jsDog.addEventListener("mouseout", handleMouseOut);
 }
 
 function addCoolAnimalsToJsList() {
@@ -101,7 +102,7 @@ function fetchJsDogs() {
   button.textContent = "Fetch a Dog";
   jsBody.appendChild(button);
 
-  function fetchDog() {
+  button.addEventListener("click", () => {
     fetch("https://dog.ceo/api/breeds/image/random")
       .then((response) => response.json())
       .then((data) => {
@@ -109,12 +110,11 @@ function fetchJsDogs() {
         const img = document.createElement("img");
         img.src = imageUrl;
         img.alt = "Random Dog Image";
-        img.style.height = "160px";
-        img.style.width = "160px";
-        jsBody.insertBefore(img, jsBody.firstChild);
+        img.style.height = "150px";
+        img.style.width = "150px";
+        jsBody.appendChild(img);
       });
-  }
-  button.addEventListener("click", fetchDog);
+  });
 }
 
 function cleanUpAfterJsDogs() {
@@ -126,12 +126,12 @@ function cleanUpAfterJsDogs() {
   const jsGridContainer = document.createElement("div");
   jsGridContainer.classList.add("image-grid");
   jsGridContainer.id = "js-grid-container";
-  jsAnimalList.insertBefore(jsGridContainer);
+  jsAnimalList.insertBefore(jsGridContainer, jsAnimalList.firstChild);
 
   const images = Array.from(jsBody.querySelectorAll("img"));
   images.forEach((img) => {
-    img.style.height = "45px";
-    img.style.width = "45px";
+    img.style.height = "50px";
+    img.style.width = "50px";
     jsGridContainer.appendChild(img);
   });
 }

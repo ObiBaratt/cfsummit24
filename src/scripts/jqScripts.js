@@ -62,7 +62,7 @@ function addJqListItemEventHandler() {
   });
 
   $jqDog.on("mouseout", function () {
-    $jqDog.css("color", "green");
+    $jqCat.css("color", "green");
   });
 }
 
@@ -86,8 +86,11 @@ function addCoolAnimalsToJqList() {
 
 function fetchJqDogs() {
   const $jqBody = $("#jq-body");
-  const $button = $("<button>").text("Fetch a Dog");
+  const $button = $("<button>")
+    .text("Fetch a Dog")
+    .attr("id", "jq-fetch-dog-button");
   $jqBody.append($button);
+
   $button.on("click", () => {
     $.ajax({
       url: "https://dog.ceo/api/breeds/image/random",
@@ -97,10 +100,10 @@ function fetchJqDogs() {
           .attr("src", data.message)
           .attr("alt", "Random Dog Image")
           .css({
-            width: "160px",
-            height: "160px",
+            width: "150px",
+            height: "150px",
           });
-        $jqBody.prepend($img);
+        $jqBody.append($img);
       },
     });
   });
@@ -120,8 +123,8 @@ function cleanUpAfterJqDogs() {
   const $images = $jqBody.find("img");
   $images.each(function () {
     $(this).css({
-      height: "45px",
-      width: "45px",
+      height: "50px",
+      width: "50px",
     });
   });
 }

@@ -35,6 +35,10 @@ header {
   font-weight: bold;
 }
 
+#js-code {
+  border-right: 2px dashed white;
+}
+
 .button-container {
   display: flex;
   justify-content: center;
