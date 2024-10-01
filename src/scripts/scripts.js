@@ -36,27 +36,27 @@ const functions = [
   { js: cleanUpJs, jq: cleanUpJq },
   { js: addJsSlider, jq: addJqSlider },
   { js: newJsParagraph, jq: newJqParagraph },
-  { js: newJsDivWithClass, jq: newJqDivWithClass },
-  { js: addJsAnimalList, jq: addJqAnimalList },
-  { js: modifyJsAnimalListItems, jq: modifyJqAnimalListItems },
-  { js: addJsListItemEventHandler, jq: addJqListItemEventHandler },
-  { js: addCoolAnimalsToJsList, jq: addCoolAnimalsToJqList },
-  {
-    js: removeJsAnimalListItemsAndButton,
-    jq: removeJqAnimalListItemsAndButton,
-  },
-  { js: fetchJsDogs, jq: fetchJqDogs },
-  { js: cleanUpAfterJsDogs, jq: cleanUpAfterJqDogs },
+  // { js: newJsDivWithClass, jq: newJqDivWithClass },
+  // { js: addJsAnimalList, jq: addJqAnimalList },
+  // { js: modifyJsAnimalListItems, jq: modifyJqAnimalListItems },
+  // { js: addJsListItemEventHandler, jq: addJqListItemEventHandler },
+  // { js: addCoolAnimalsToJsList, jq: addCoolAnimalsToJqList },
+  // {
+  //   js: removeJsAnimalListItemsAndButton,
+  //   jq: removeJqAnimalListItemsAndButton,
+  // },
+  // { js: fetchJsDogs, jq: fetchJqDogs },
+  // { js: cleanUpAfterJsDogs, jq: cleanUpAfterJqDogs },
 ];
 
 const keypressListener = (e) => {
-  console.log("sdfads", funcIndex);
   if (e.key === "0") {
     if (funcIndex === functions.length) {
       handleCleanup();
       document.removeEventListener("keypress", keypressListener);
       return;
     }
+
     const curFuncs = functions[funcIndex];
 
     if (funcIndex === 0) {
@@ -123,11 +123,12 @@ function cleanUpContainer(tag) {
 }
 
 function handleCleanup() {
-  console.log("Running cleanup");
   const endContainer = document.getElementById("end-container");
+  endContainer.classList.remove("panelHidden");
+  endContainer.classList.add("column", "centered");
   const jsBody = document.getElementById("js-body");
   const jqBody = document.getElementById("jq-body");
-  fade(codeContainer);
+  fade(codeContainer, 1000);
   fade(jsBody, 3500);
   fade(jqBody, 3500);
   fade(endContainer, 7500);

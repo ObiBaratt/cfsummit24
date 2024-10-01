@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  padding: 20px;
+  padding: 1.5%;
   font-family: Arial, sans-serif;
   line-height: 1.6;
   background-color: #f9f9f9;
@@ -79,8 +79,9 @@ header {
   position: fixed;
   top: 36vh;
   left: 0;
-  width: 50%;
+  width: 48.5%;
   height: 59vh;
+  margin-left: 1.5%;
   background-color: white;
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
@@ -93,8 +94,9 @@ header {
   position: fixed;
   right: 0;
   top: 36vh;
-  width: 50%;
+  width: 48.5%;
   height: 59vh;
+  margin-right: 1.5%;
   background-color: white;
   z-index: 1000;
   transition: transform 0.3s ease-in-out;

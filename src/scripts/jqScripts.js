@@ -1,9 +1,9 @@
 const $ = window.jQuery;
 
 function prependToJqCode(text) {
-  const $jqBody = $("#jq-code");
+  const $jqCode = $("#jq-code");
   const $pre = $("<pre>").text(text);
-  $jqBody.prepend($pre);
+  $jqCode.prepend($pre);
 }
 
 function cleanUpJq(tag) {
