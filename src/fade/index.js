@@ -32,6 +32,11 @@ function fadeOut(element, duration = 500) {
   }, duration);
 }
 
+/**
+ * Fades an element in or out, depending on its current opacity.
+ * @param {Element} element - The element to be faded.
+ * @param {number} [duration=500] - The duration of the fade in milliseconds.
+ */
 export default function fade(element, duration = 500) {
   if (getComputedOpacity(element) === 1) {
     fadeOut(element, duration);

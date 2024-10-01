@@ -147,7 +147,7 @@ function cleanUpAfterJqDogs() {
       height: "50px",
       width: "50px",
     });
-    jqGridContainer.append($(this)); 
+    jqGridContainer.append($(this));
   });
 }
 
