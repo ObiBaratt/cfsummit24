@@ -38,8 +38,9 @@ function addJqAnimalList() {
   $jsBody.append($jqAnimalList);
 
   basicAnimals.forEach((animal) => {
-    const listItem = $("<li>").text(animal);
-    listItem.attr("id", animal.toLowerCase() + "JqListItem");
+    const listItem = $("<li>")
+      .text(animal)
+      .attr("id", animal.toLowerCase() + "JqListItem");
     $jqAnimalList.append(listItem);
   });
 }
@@ -79,8 +80,9 @@ function addCoolAnimalsToJqList() {
     const rand = Math.random();
     const randomIndex = Math.floor(rand * coolAnimals.length);
     const randomAnimal = coolAnimals[randomIndex];
-    const $li = $("<li>").text(randomAnimal);
-    $li.attr("id", `${randomAnimal}JqListItem-${rand}`);
+    const $li = $("<li>")
+      .text(randomAnimal)
+      .attr("id", `${randomAnimal}JqListItem-${rand}`);
     jqAnimalList.append($li);
   }
   $button.on("click", addAnimal);
