@@ -99,7 +99,7 @@ function removeJsAnimalListItemsAndButton() {
     fade(li);
     setTimeout(() => {
       li.remove();
-    }, 1000);
+    }, 2500);
   });
 
   fade(jsAnimalListButton);

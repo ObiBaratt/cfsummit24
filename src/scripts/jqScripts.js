@@ -12,7 +12,7 @@ function cleanUpJq(tag) {
   tags.length && tags.fadeToggle();
   setTimeout(() => {
     tags.length && tags.remove();
-  }, 1000);
+  }, 2500);
 }
 
 function addJqSlider() {
@@ -147,6 +147,7 @@ function cleanUpAfterJqDogs() {
       height: "50px",
       width: "50px",
     });
+    jqGridContainer.append($(this)); 
   });
 }
 
