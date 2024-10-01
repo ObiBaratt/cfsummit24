@@ -1,6 +1,6 @@
 const $ = window.jQuery;
 
-function appendToJqCode(text) {
+function prependToJqCode(text) {
   const $jqBody = $("#jq-code");
   const $pre = $("<pre>").text(text);
   $jqBody.prepend($pre);
@@ -34,7 +34,7 @@ function addJqAnimalList() {
   const $jsBody = $("#jq-body");
   const basicAnimals = ["Dog", "Cat", "Mouse"];
 
-  let $jqAnimalList = $("<ol>", { id: "jqAnimalList" });
+  const $jqAnimalList = $("<ol>", { id: "jqAnimalList" });
   $jsBody.append($jqAnimalList);
 
   basicAnimals.forEach((animal) => {
@@ -70,7 +70,9 @@ function addCoolAnimalsToJqList() {
   const $jqBody = $("#jq-body");
   const jqAnimalList = $("#jqAnimalList");
   const coolAnimals = ["Gorilla", "Platypus", "Orca", "Cheetah"];
-  const $button = $("<button>").text("Add an Animal");
+  const $button = $("<button>")
+    .text("Add an Animal")
+    .attr("id", "jqAnimalListButton");
   $jqBody.append($button);
 
   function addAnimal() {
@@ -82,6 +84,25 @@ function addCoolAnimalsToJqList() {
     jqAnimalList.append($li);
   }
   $button.on("click", addAnimal);
+}
+
+function removeJqAnimalListItemsAndButton() {
+  const $jqAnimalList = $("#jqAnimalList");
+  const $jqAnimalListButton = $("#jqAnimalListButton");
+  const $animalListItems = $jqAnimalList.find("li");
+
+  $animalListItems.each(function () {
+    $(this).fadeToggle();
+    setTimeout(() => {
+      $(this).remove();
+    }, 1000);
+  });
+
+  $jqAnimalListButton.fadeToggle();
+
+  setTimeout(() => {
+    $jqAnimalListButton.remove();
+  }, 1000);
 }
 
 function fetchJqDogs() {
@@ -130,7 +151,7 @@ function cleanUpAfterJqDogs() {
 }
 
 export {
-  appendToJqCode,
+  prependToJqCode,
   addJqSlider,
   newJqParagraph,
   cleanUpJq,
@@ -139,6 +160,7 @@ export {
   modifyJqAnimalListItems,
   addJqListItemEventHandler,
   addCoolAnimalsToJqList,
+  removeJqAnimalListItemsAndButton,
   fetchJqDogs,
   cleanUpAfterJqDogs,
 };

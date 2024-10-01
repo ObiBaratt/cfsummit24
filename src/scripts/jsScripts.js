@@ -1,10 +1,12 @@
 import fade from "../fade/index.js";
 import slide from "../slide/index.js";
+import codeHighlight from "../codeHighlight/index.js";
 
-function appendToJsCode(text) {
+function prependToJsCode(text) {
   const jsCode = document.getElementById("js-code");
   const pre = document.createElement("pre");
   pre.textContent = text;
+  codeHighlight(pre);
   jsCode.insertBefore(pre, jsCode.firstChild);
 }
 
@@ -64,15 +66,9 @@ function modifyJsAnimalListItems() {
 function addJsListItemEventHandler() {
   const jsCat = document.getElementById("catJsListItem");
   const jsDog = document.getElementById("dogJsListItem");
-  function handleMouseOver() {
-    jsCat.style.color = "white";
-  }
 
-  function handleMouseOut() {
-    jsCat.style.color = "green";
-  }
-  jsDog.addEventListener("mouseover", handleMouseOver);
-  jsDog.addEventListener("mouseout", handleMouseOut);
+  jsDog.addEventListener("mouseover", () => (jsCat.style.color = "white"));
+  jsDog.addEventListener("mouseout", () => (jsCat.style.color = "green"));
 }
 
 function addCoolAnimalsToJsList() {
@@ -81,6 +77,7 @@ function addCoolAnimalsToJsList() {
   const coolAnimals = ["Lion", "Elephant", "Giraffe", "Zebra"];
   const button = document.createElement("button");
   button.textContent = "Add an Animal";
+  button.id = "jsAnimalListButton";
   jsBody.appendChild(button);
 
   function addAnimal() {
@@ -93,6 +90,25 @@ function addCoolAnimalsToJsList() {
     jsAnimalList.appendChild(li);
   }
   button.addEventListener("click", addAnimal);
+}
+
+function removeJsAnimalListItemsAndButton() {
+  const jsAnimalList = document.getElementById("jsAnimalList");
+  const jsAnimalListButton = document.getElementById("jsAnimalListButton");
+  const animalListItems = jsAnimalList.querySelectorAll("li");
+
+  animalListItems.forEach((li) => {
+    fade(li);
+    setTimeout(() => {
+      li.remove();
+    }, 1000);
+  });
+
+  fade(jsAnimalListButton);
+
+  setTimeout(() => {
+    jsAnimalListButton.remove();
+  }, 1000);
 }
 
 function fetchJsDogs() {
@@ -137,7 +153,7 @@ function cleanUpAfterJsDogs() {
 }
 
 export {
-  appendToJsCode,
+  prependToJsCode,
   addJsSlider,
   newJsParagraph,
   cleanUpJs,
@@ -146,6 +162,7 @@ export {
   modifyJsAnimalListItems,
   addJsListItemEventHandler,
   addCoolAnimalsToJsList,
+  removeJsAnimalListItemsAndButton,
   fetchJsDogs,
   cleanUpAfterJsDogs,
 };

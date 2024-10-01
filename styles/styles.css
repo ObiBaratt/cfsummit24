@@ -163,3 +163,14 @@ header {
   justify-items: center;
   height: 100%;
 }
+
+#end-container h2 {
+  font-size: xxx-large;
+  font-weight: bold;
+}
+
+#end-container h3 {
+  font-size: xx-large;
+}
+
+
