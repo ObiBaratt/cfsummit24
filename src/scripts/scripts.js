@@ -36,17 +36,17 @@ const functions = [
   { js: cleanUpJs, jq: cleanUpJq },
   { js: addJsSlider, jq: addJqSlider },
   { js: newJsParagraph, jq: newJqParagraph },
-  // { js: newJsDivWithClass, jq: newJqDivWithClass },
-  // { js: addJsAnimalList, jq: addJqAnimalList },
-  // { js: modifyJsAnimalListItems, jq: modifyJqAnimalListItems },
-  // { js: addJsListItemEventHandler, jq: addJqListItemEventHandler },
-  // { js: addCoolAnimalsToJsList, jq: addCoolAnimalsToJqList },
-  // {
-  //   js: removeJsAnimalListItemsAndButton,
-  //   jq: removeJqAnimalListItemsAndButton,
-  // },
-  // { js: fetchJsDogs, jq: fetchJqDogs },
-  // { js: cleanUpAfterJsDogs, jq: cleanUpAfterJqDogs },
+  { js: newJsDivWithClass, jq: newJqDivWithClass },
+  { js: addJsAnimalList, jq: addJqAnimalList },
+  { js: modifyJsAnimalListItems, jq: modifyJqAnimalListItems },
+  { js: addJsListItemEventHandler, jq: addJqListItemEventHandler },
+  { js: addCoolAnimalsToJsList, jq: addCoolAnimalsToJqList },
+  {
+    js: removeJsAnimalListItemsAndButton,
+    jq: removeJqAnimalListItemsAndButton,
+  },
+  { js: fetchJsDogs, jq: fetchJqDogs },
+  { js: cleanUpAfterJsDogs, jq: cleanUpAfterJqDogs },
 ];
 
 const keypressListener = (e) => {
