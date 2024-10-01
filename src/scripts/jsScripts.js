@@ -1,12 +1,10 @@
 import fade from "../fade/index.js";
 import slide from "../slide/index.js";
-import codeHighlight from "../codeHighlight/index.js";
 
 function prependToJsCode(text) {
   const jsCode = document.getElementById("js-code");
   const pre = document.createElement("pre");
   pre.textContent = text;
-  codeHighlight(pre);
   jsCode.insertBefore(pre, jsCode.firstChild);
 }
 
