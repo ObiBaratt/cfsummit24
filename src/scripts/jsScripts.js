@@ -5,7 +5,7 @@ function appendToJsCode(text) {
   const jsCode = document.getElementById("js-code");
   const pre = document.createElement("pre");
   pre.textContent = text;
-  jsCode.appendChild(pre);
+  jsCode.insertBefore(pre, jsCode.firstChild);
 }
 
 function cleanUpJs(tag) {
@@ -19,7 +19,7 @@ function cleanUpJs(tag) {
 
 function addJsSlider() {
   const jsBody = document.getElementById("js-body");
-  // slide takes element, direction, overlay, outsideClicksCloses
+  // slide(element, direction, overlay, outsideClicksClose)
   slide(jsBody, "left", false, false);
 }
 
@@ -78,7 +78,7 @@ function addJsListItemEventHandler() {
 function addCoolAnimalsToJsList() {
   const jsBody = document.getElementById("js-body");
   const jsAnimalList = document.getElementById("jsAnimalList");
-  const coolAnimals = ["Lion", "Elephant", "Giraffe", "Zebra", "Monkey"];
+  const coolAnimals = ["Lion", "Elephant", "Giraffe", "Zebra"];
   const button = document.createElement("button");
   button.textContent = "Add an Animal";
   jsBody.appendChild(button);

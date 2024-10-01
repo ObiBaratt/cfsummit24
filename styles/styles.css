@@ -35,10 +35,6 @@ header {
   font-weight: bold;
 }
 
-#js-code {
-  border-right: 2px dashed white;
-}
-
 .button-container {
   display: flex;
   justify-content: center;
@@ -60,7 +56,7 @@ header {
 }
 
 #code-container h3 {
-  font-size: xx-large;
+  font-size: x-large;
 }
 
 .code-output {
@@ -68,7 +64,7 @@ header {
 }
 
 #code-container pre {
-  font-size: x-large;
+  font-size: large;
 }
 
 #bodies {
@@ -83,13 +79,13 @@ header {
   position: fixed;
   top: 36vh;
   left: 0;
-  margin-left: 20px;
-  width: 47%;
+  width: 50%;
   height: 59vh;
   background-color: white;
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
   border: 5px solid #272822;
+  border-right: 2.5px solid #272822;
 }
 
 #jq-body {
@@ -97,13 +93,18 @@ header {
   position: fixed;
   right: 0;
   top: 36vh;
-  margin-right: 20px;
-  width: 47%;
+  width: 50%;
   height: 59vh;
   background-color: white;
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
   border: 5px solid #272822;
+  border-left: 2.5px solid #272822;
+}
+
+#js-body,
+#jq-body {
+  box-sizing: border-box;
 }
 
 #start-button {

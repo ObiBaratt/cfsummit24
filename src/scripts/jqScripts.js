@@ -3,7 +3,7 @@ const $ = window.jQuery;
 function appendToJqCode(text) {
   const $jqBody = $("#jq-code");
   const $pre = $("<pre>").text(text);
-  $jqBody.append($pre);
+  $jqBody.prepend($pre);
 }
 
 function cleanUpJq(tag) {
@@ -69,7 +69,7 @@ function addJqListItemEventHandler() {
 function addCoolAnimalsToJqList() {
   const $jqBody = $("#jq-body");
   const jqAnimalList = $("#jqAnimalList");
-  const coolAnimals = ["Turtle", "Gorilla", "Platypus", "Orca", "Cheetah"];
+  const coolAnimals = ["Gorilla", "Platypus", "Orca", "Cheetah"];
   const $button = $("<button>").text("Add an Animal");
   $jqBody.append($button);
 
