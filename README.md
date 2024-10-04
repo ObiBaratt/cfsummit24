@@ -32,6 +32,7 @@
 ├── styles/
 │   └── styles.css          General App styles
 ├── .gitignore
+├── README.md               Its this? How meta.
 ├── index.html              I guess its a single page app?
 ├── linkedinQR.png          My LinkedIn QR code 
 ├── package.json            Only necessary to run as a server locally via live-server
